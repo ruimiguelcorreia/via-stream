@@ -1,0 +1,17 @@
+.NavBar {
+  height: 0;
+  width: 100vw;
+  font-size: 20pt;
+
+  .menu-options {
+    visibility: hidden;
+  }
+
+  ion-icon {
+    font-size: 85px;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: #d1ac00;
+  }
+}

@@ -7,6 +7,8 @@ import Movies from './movies/movies';
 import TvShows from './tvShows/tvShows';
 import Subscriptions from './subscriptionSelector/subscriptions';
 
+import './app.scss';
+
 class App extends Component {
   render() {
     return (

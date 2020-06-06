@@ -1,0 +1,67 @@
+.Homepage {
+  height: 100vh;
+  background-image: linear-gradient(to bottom, #012122da, #011c1db2),
+    url('../images/homepage-background.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: grid;
+  grid-template-rows: 60vh 40vh;
+  align-items: center;
+
+  .title-container {
+    position: relative;
+    left: 20vw;
+    top: 10vh;
+    border: 5px outset #d1ac00;
+    border-radius: 50%;
+    height: 600px;
+    width: 60vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .homepage-title {
+    font-size: 100pt;
+    text-align: center;
+    color: #d1ac00;
+    font-family: 'Baloo Bhai 2';
+    line-height: 150px;
+  }
+
+  .homepage-buttons {
+    height: 40vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 6.5vh 8.5vh 10.5vh 10vh;
+
+    p {
+      color: #f5f5f5;
+      font-size: 40pt;
+      font-family: 'Baloo Bhai 2';
+      text-align: center;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .select-btn {
+      background-color: rgb(180, 147, 0);
+      height: 120px;
+      width: 32vw;
+      border-radius: 75px;
+      border: none;
+      font-size: 32pt;
+      font-family: 'Roboto';
+
+      & .button-link {
+        text-decoration: none;
+        color: #023436;
+      }
+    }
+  }
+}

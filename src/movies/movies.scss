@@ -1,0 +1,75 @@
+.Movies {
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
+  background-image: linear-gradient(-300deg, #012324, #011111);
+
+  .page-title {
+    font-family: 'Baloo Bhai 2';
+    font-size: 40pt;
+    color: white;
+    text-align: center;
+    position: relative;
+    top: 10vh;
+
+    .special-word {
+      color: #d1ac00;
+    }
+  }
+
+  .search-form {
+    z-index: 2;
+    position: relative;
+    top: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 12.5vh;
+
+    .form-input {
+      height: 6vh;
+      width: 70vw;
+      border-radius: 60px;
+      background: linear-gradient(-300, #f7f4f4, rgb(255, 255, 255));
+      font-size: 35pt;
+      font-family: 'Roboto';
+      text-align: center;
+      border: 5px solid #d1ac00;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  ion-icon {
+    font-size: 60px;
+    color: #d1ac00;
+    position: absolute;
+    right: 17.5vw;
+    top: 5vh;
+  }
+
+  .movies-list {
+    height: inherit;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 3.75vh;
+    background-color: #012324;
+    border-radius: 150px 150px 0 0;
+    padding-top: 7.5vh;
+    padding-bottom: 0.5vh;
+  }
+
+  .more-info {
+    position: relative;
+    top: -115vh;
+    height: 100%;
+    padding-top: 5vh;
+    z-index: 3;
+    background-image: linear-gradient(-300deg, #012324, #011111);
+  }
+}
