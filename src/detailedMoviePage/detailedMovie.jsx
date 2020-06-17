@@ -10,6 +10,9 @@ class DetailedMovie extends Component {
       movie: null,
       movieWasRetrieved: false,
       providers: [],
+      rent: [],
+      buy: [],
+      stream: [],
     };
   }
 
@@ -25,16 +28,32 @@ class DetailedMovie extends Component {
         });
       })
       .catch((error) => console.log(error));
+
+    Axios.get(`http://localhost:3000/single-movie/${imdbID}`)
+      .then((response) => {
+        response.data.justWatch[0].offers.map((offer) => {
+          if ((offer.monetization_type = 'buy')) {
+            this.state.buy.push(offer);
+          } else if ((offer.monetization_type = 'rent')) {
+            this.state.rent.push(offer);
+          } else {
+            this.state.stream.push(offer);
+          }
+        });
+      })
+      .catch((error) => console.log(error));
   }
 
   render() {
-    const { movieWasRetrieved, movie } = this.state;
+    const { movieWasRetrieved, movie, providers } = this.state;
     const { closeInfo } = this.props;
     return (
       <div>
-        <button onClick={closeInfo}>X</button>
         {movieWasRetrieved && (
           <div className="Details">
+            <button onClick={closeInfo} className="close-btn">
+              X
+            </button>
             <div className="title">{movie.imdb.Title}</div>
             <div className="awards">{movie.imdb.Awards}</div>
             <span className="poster">
@@ -54,6 +73,11 @@ class DetailedMovie extends Component {
             <span className="table-content">{movie.imdb.BoxOffice}</span>
             <span className="table-title">Runtime:</span>
             <span className="table-content">{movie.imdb.Runtime}</span>
+
+            <div className="providers-table">
+              <span className="type-selector"></span>
+              <span class="providers-list"></span>
+            </div>
           </div>
         )}
       </div>

@@ -11,13 +11,14 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
     "react-image": "^2.4.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.1.2",
+    "react-scripts": "^3.4.1",
+    "react-text-more-less": "^0.4.1",
     "read-more-react": "^1.0.10"
   },
   "scripts": {

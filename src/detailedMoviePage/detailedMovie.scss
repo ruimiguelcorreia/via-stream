@@ -1,85 +1,96 @@
 .Details {
+  height: auto;
   display: grid;
-  grid-template-rows: 7.5vh 7.5vh 57vh 4vh;
-  grid-template-columns: 10vw 40vw 40vw 10vw;
-  row-gap: 1vh;
-  text-align: center;
+  row-gap: 20px;
+  font-family: 'Roboto';
+  grid-template-columns: 35% 65%;
+
+  .close-btn {
+    grid-column: span 2;
+    height: 75px;
+    width: 75px;
+    border-radius: 50px;
+    background-color: transparent;
+    border: 5px solid #277b7e;
+    color: #277b7e;
+    font-size: 20pt;
+    justify-self: center;
+  }
 
   .title {
-    grid-column-start: 2;
-    grid-column-end: 4;
-    font-size: 50pt;
-    padding: 0 85px 0 85px;
-    color: #d1ac00;
+    grid-column: span 2;
+    font-size: 55pt;
     font-family: 'Baloo Bhai 2';
-    line-height: 60pt;
+    color: #d1ac00;
+    text-align: center;
+    width: 90%;
+    justify-self: center;
+    line-height: 70pt;
   }
 
   .awards {
-    grid-column-start: 2;
-    grid-column-end: 4;
-    font-size: 30pt;
-    padding: 0 85px 0 85px;
-    color: #3e6259;
-    font-family: 'Roboto';
+    grid-column: span 2;
+    font-size: 27pt;
+    width: 55%;
+    justify-self: center;
+    text-align: center;
+    font-style: italic;
+    color: #277b7e;
   }
 
   .poster {
-    grid-column-start: 2;
-    grid-column-end: 4;
-    height: 1100px;
+    grid-column: span 2;
+    justify-self: center;
     border: 3px dashed #d1ac00;
-    border-radius: 100px;
-    padding: 50px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-
+    border-radius: 50px;
+    padding: 25px;
     img {
-      height: 1100px;
-      border-radius: 60px;
+      height: 850px;
+      border-radius: 35px;
     }
   }
 
   .rated {
-    grid-column-start: 2;
-    grid-column-end: 4;
-    font-size: 27pt;
+    grid-column: span 2;
+    font-size: 25pt;
     color: #d1ac00;
-    text-align: right;
-    font-family: 'Roboto';
+    justify-self: right;
+    margin-right: 200px;
   }
 
   .plot {
-    grid-column-start: 2;
-    grid-column-end: 4;
-    font-size: 30pt;
-    line-height: 45pt;
-    background-color: #012324;
-    color: #f5f5f5;
-    font-family: 'Roboto';
-    border-radius: 60px;
+    grid-column: span 2;
+    font-size: 25pt;
     text-align: left;
-    padding: 40px;
-    box-shadow: 10px 10px 10% white;
-  }
-
-  .table-content {
-    grid-column: 3;
-    font-family: 'Roboto';
-    font-size: 30pt;
-    background-color: #012324;
+    line-height: 45pt;
+    background-color: #194f51;
     color: #f5f5f5;
-    border-radius: 0 60px 60px 0;
+    width: 60%;
+    justify-self: center;
+    border-radius: 50px;
+    padding: 25px;
   }
 
   .table-title {
+    grid-column: 1;
     background-color: #d1ac00;
-    color: #012324;
-    height: 10vh;
-    border-radius: 60px 0 0 60px;
+    font-size: 25pt;
+    color: #194f51;
+    width: 50%;
+    justify-self: right;
+    height: 150px;
+    text-align: center;
+    border-radius: 50px 0 0 50px;
+  }
+
+  .table-content {
     grid-column: 2;
-    font-family: 'Roboto';
-    font-size: 30pt;
+    background-color: #194f51;
+    font-size: 25pt;
+    color: #f5f5f5;
+    width: 72.5%;
+    justify-self: left;
+    text-align: center;
+    border-radius: 0 50px 50px 0;
   }
 }
