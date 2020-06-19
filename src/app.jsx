@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Switch, Route} from 'react-router-dom'; 
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
 import NavBar from './navBar/navBar';
 import Homepage from './main/homepage';
@@ -9,20 +9,18 @@ import Subscriptions from './subscriptionSelector/subscriptions';
 
 import './app.scss';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <NavBar />
-        <Switch>
-          <Route exact path="/" component ={Homepage} />
-          <Route exact path="/movies" component ={Movies} />
-          <Route exact path="/tv-shows" component = {TvShows} />
-          <Route exact path="/subscriptions" component = {Subscriptions} />
-        </Switch>
-      </div>
-    )
-  }
-}
+const App = () => {
+	return (
+		<div>
+			<NavBar />
+			<Switch>
+				<Route exact path="/" component={Homepage} />
+				<Route exact path="/movies" component={Movies} />
+				<Route exact path="/tv-shows" component={TvShows} />
+				<Route exact path="/subscriptions" component={Subscriptions} />
+			</Switch>
+		</div>
+	);
+};
 
 export default App;

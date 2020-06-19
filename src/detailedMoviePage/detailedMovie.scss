@@ -1,96 +1,175 @@
 .Details {
-  height: auto;
-  display: grid;
-  row-gap: 20px;
-  font-family: 'Roboto';
-  grid-template-columns: 35% 65%;
+	height: auto;
+	display: grid;
+	font-family: 'Roboto';
+	grid-template-columns: 40% 60%;
+	row-gap: 2vh;
 
-  .close-btn {
-    grid-column: span 2;
-    height: 75px;
-    width: 75px;
-    border-radius: 50px;
-    background-color: transparent;
-    border: 5px solid #277b7e;
-    color: #277b7e;
-    font-size: 20pt;
-    justify-self: center;
-  }
+	.close-btn {
+		grid-column: span 2;
+		height: 75px;
+		width: 75px;
+		border-radius: 50px;
+		border: none;
+		background-color: transparent;
+		justify-self: center;
+		margin-top: 7vh;
 
-  .title {
-    grid-column: span 2;
-    font-size: 55pt;
-    font-family: 'Baloo Bhai 2';
-    color: #d1ac00;
-    text-align: center;
-    width: 90%;
-    justify-self: center;
-    line-height: 70pt;
-  }
+		ion-icon {
+			color: #277b7e;
+			font-size: 70pt;
+		}
+	}
 
-  .awards {
-    grid-column: span 2;
-    font-size: 27pt;
-    width: 55%;
-    justify-self: center;
-    text-align: center;
-    font-style: italic;
-    color: #277b7e;
-  }
+	.title {
+		grid-column: span 2;
+		font-size: 55pt;
+		font-family: 'Baloo Bhai 2';
+		color: #d1ac00;
+		text-align: center;
+		width: 90%;
+		justify-self: center;
+		line-height: 70pt;
+	}
 
-  .poster {
-    grid-column: span 2;
-    justify-self: center;
-    border: 3px dashed #d1ac00;
-    border-radius: 50px;
-    padding: 25px;
-    img {
-      height: 850px;
-      border-radius: 35px;
-    }
-  }
+	.awards {
+		grid-column: span 2;
+		font-size: 27pt;
+		width: 55%;
+		justify-self: center;
+		text-align: center;
+		font-style: italic;
+		color: #277b7e;
+	}
 
-  .rated {
-    grid-column: span 2;
-    font-size: 25pt;
-    color: #d1ac00;
-    justify-self: right;
-    margin-right: 200px;
-  }
+	.poster {
+		grid-column: span 2;
+		justify-self: center;
+		border: 3px dashed #d1ac00;
+		border-radius: 50px;
+		padding: 25px;
+		img {
+			height: 890px;
+			border-radius: 35px;
+		}
+	}
 
-  .plot {
-    grid-column: span 2;
-    font-size: 25pt;
-    text-align: left;
-    line-height: 45pt;
-    background-color: #194f51;
-    color: #f5f5f5;
-    width: 60%;
-    justify-self: center;
-    border-radius: 50px;
-    padding: 25px;
-  }
+	.rated {
+		grid-column: span 2;
+		font-size: 23pt;
+		color: #d1ac00;
+		justify-self: right;
+		margin-right: 200px;
+	}
 
-  .table-title {
-    grid-column: 1;
-    background-color: #d1ac00;
-    font-size: 25pt;
-    color: #194f51;
-    width: 50%;
-    justify-self: right;
-    height: 150px;
-    text-align: center;
-    border-radius: 50px 0 0 50px;
-  }
+	.plot {
+		grid-column: span 2;
+		background-color: #194f51;
+		color: #f5f5f5;
+		width: 60%;
+		justify-self: center;
+		border-radius: 50px;
+		padding: 35px;
 
-  .table-content {
-    grid-column: 2;
-    background-color: #194f51;
-    font-size: 25pt;
-    color: #f5f5f5;
-    width: 72.5%;
-    justify-self: left;
-    text-align: center;
-    border-radius: 0 50px 50px 0;
-  }
+		p {
+			font-size: 25pt;
+			text-align: left;
+			line-height: 45pt;
+			-webkit-line-clamp: 5;
+			display: -webkit-box;
+			overflow: hidden;
+			-webkit-box-orient: vertical;
+		}
+	}
+
+	.table-title {
+		grid-column: 1;
+		background-color: #d1ac00;
+		color: #194f51;
+		width: 50%;
+		justify-self: right;
+		height: 150px;
+		border-radius: 50px 0 0 50px;
+		display: grid;
+		font-size: 25pt;
+		padding: 15px;
+
+		p {
+			justify-self: end;
+			align-self: center;
+		}
+	}
+
+	.table-content {
+		grid-column: 2;
+		background-color: #194f51;
+		font-size: 24pt;
+		line-height: 35pt;
+		color: #f5f5f5;
+		width: 72.5%;
+		justify-self: left;
+		text-align: center;
+		border-radius: 0 50px 50px 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		p {
+			-webkit-line-clamp: 3;
+			display: -webkit-box;
+			overflow: hidden;
+			-webkit-box-orient: vertical;
+		}
+	}
+
+	.providers-table {
+		grid-column: span 2;
+		justify-self: center;
+		align-self: center;
+		width: 65%;
+
+		.type-selector {
+			color: white;
+			font-size: 30pt;
+			display: grid;
+			grid-template-columns: 32% 32% 32%;
+			column-gap: 2%;
+			height: 75px;
+
+			.provider-buy,
+			.provider-rent,
+			.provider-stream {
+				text-align: center;
+				font-family: 'Roboto';
+				font-size: 25pt;
+				color: #194f51;
+				background-color: #d1ac00;
+				border-radius: 50px 50px 0 0;
+				border: none;
+				outline: none;
+
+				&:focus {
+					background-color: #816a00;
+					color: #f5f5f5;
+				}
+			}
+
+			.provider-buy {
+				grid-column: 1;
+			}
+			.provider-rent {
+				grid-column: 2;
+			}
+			.provider-stream {
+				grid-column: 3;
+			}
+		}
+
+		.providers-list {
+			height: 650px;
+			background-color: #194f51;
+			border-radius: 0 0 50px 50px;
+			margin-bottom: 2vh;
+		}
+	}
 }
