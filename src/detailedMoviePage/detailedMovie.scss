@@ -50,6 +50,8 @@
 		padding: 25px;
 		img {
 			height: 890px;
+			max-width: 600px;
+			object-fit: cover;
 			border-radius: 35px 35px 0 0;
 		}
 
@@ -199,16 +201,6 @@
 					color: #f5f5f5;
 				}
 			}
-
-			.provider-buy {
-				grid-column: 1;
-			}
-			.provider-rent {
-				grid-column: 2;
-			}
-			.provider-stream {
-				grid-column: 3;
-			}
 		}
 
 		.providers-list {
@@ -262,6 +254,14 @@
 					border-radius: 20px;
 				}
 			}
+		}
+
+		.no-list {
+			font-size: 30pt;
+			color: #f5f5f5;
+			font-family: 'Roboto';
+			text-align: center;
+			margin-bottom: 5vh;
 		}
 	}
 }

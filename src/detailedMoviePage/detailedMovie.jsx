@@ -151,25 +151,29 @@ class DetailedMovie extends Component {
 									</button>
 								)}
 							</div>
-							<div class="providers-list">
-								{providers.map((choice) => (
-									<div className="individual-offer">
-										<p className="individual-quality">{choice.presentation_type}</p>
-										<img
-											src={require(`../images/providerIcons/${choice.provider_id}.jpeg`)}
-											className="individual-img"
-											alt="Provider Logo"
-										/>
-										<p className="individual-price">
-											{typeSelected === 'buy' || typeSelected === 'rent' ? (
-												`£ ${choice.retail_price}`
-											) : (
-												''
-											)}
-										</p>
-									</div>
-								))}
-							</div>
+							{providers.length > 0 ? (
+								<div className="providers-list">
+									{providers.map(({ provider_id, presentation_type, retail_price }) => (
+										<div key={provider_id + presentation_type} className="individual-offer">
+											<p className="individual-quality">{presentation_type}</p>
+											<img
+												src={require(`../images/providerIcons/${provider_id}.jpeg`)}
+												className="individual-img"
+												alt="Provider Logo"
+											/>
+											<p className="individual-price">
+												{typeSelected === 'buy' || typeSelected === 'rent' ? (
+													`£ ${retail_price}`
+												) : (
+													''
+												)}
+											</p>
+										</div>
+									))}
+								</div>
+							) : (
+								<div className="no-list">No streaming services.</div>
+							)}
 						</div>
 					</div>
 				)}

@@ -54,11 +54,12 @@ class Movies extends Component {
 	};
 
 	clearSelectedMovie = (event) => {
-		this.setState({ selectedMovie: null, showMovieInfo: false });
+		this.setState({ selectedMovieInfo: null, showMovieInfo: false });
 	};
 
 	render() {
 		const { movieListIMDB, listWasUpdated, showMovieInfo, selectedMovieInfo, detailedProvidersList } = this.state;
+
 		return (
 			<div className="Movies">
 				<p className="page-title">

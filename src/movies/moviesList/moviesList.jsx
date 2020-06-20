@@ -31,11 +31,10 @@ class MoviesListItem extends Component {
 		const { allProviders, filteredProvidersList } = this.state;
 
 		if (allProviders !== prevState.allProviders) {
-			allProviders.map((offer) => {
+			allProviders.forEach((offer) => {
 				if (!filteredProvidersList.includes(offer.provider_id)) {
 					filteredProvidersList.push(offer.provider_id);
 					this.setState({ isFiltered: true });
-				} else {
 				}
 			});
 		}

@@ -20,67 +20,69 @@ const NavBar = () => {
 		disabled = true;
 		navBarClicked = !navBarClicked;
 
+		const duration = 0.15;
+
 		if (navBarClicked) {
-			gsap.to(upperRight, { fill: '#d1ac00', duration: 0.35, ease: Power3.easeIn });
+			gsap.to(upperRight, { fill: '#d1ac00', duration, ease: Power3.easeIn });
 			gsap.fromTo(
 				upperLeft,
 				{ opacity: 1, x: 0 },
-				{ opacity: 0, x: -100, duration: 0.35, ease: Power3.easeIn, delay: 0.35 }
+				{ opacity: 0, x: -100, duration, ease: Power3.easeIn, delay: duration }
 			);
 			gsap.fromTo(
 				movies,
 				{ opacity: 0, x: 20 },
-				{ opacity: 1, x: 0, duration: 0.35, ease: Power3.easeIn, delay: 0.35 }
+				{ opacity: 1, x: 0, duration, ease: Power3.easeIn, delay: duration }
 			);
 			gsap.fromTo(
 				lowerLeft,
 				{ opacity: 1, x: 0 },
-				{ opacity: 0, x: -100, duration: 0.35, ease: Power3.easeIn, delay: 0.7 }
+				{ opacity: 0, x: -100, duration, ease: Power3.easeIn, delay: duration * 2 }
 			);
 			gsap.fromTo(
 				series,
 				{ opacity: 0, x: 20 },
-				{ opacity: 1, x: 0, duration: 0.35, ease: Power3.easeIn, delay: 0.7 }
+				{ opacity: 1, x: 0, duration, ease: Power3.easeIn, delay: duration * 2 }
 			);
 			gsap.fromTo(
 				lowerRight,
 				{ opacity: 1, x: 0 },
-				{ opacity: 0, x: -100, duration: 0.35, ease: Power3.easeIn, delay: 1.05 }
+				{ opacity: 0, x: -100, duration, ease: Power3.easeIn, delay: duration * 3 }
 			);
 			gsap.fromTo(
 				helper,
 				{ opacity: 0, x: 20 },
-				{ opacity: 1, x: 0, duration: 0.35, ease: Power3.easeIn, delay: 1.05 }
+				{ opacity: 1, x: 0, duration, ease: Power3.easeIn, delay: duration * 3 }
 			);
 		} else {
-			gsap.to(upperRight, { fill: 'none', duration: 0.35, ease: Power3.easeIn });
-			gsap.fromTo(helper, { opacity: 1, x: 0 }, { duration: 0.35, opacity: 0, x: 20, ease: Power3.easeIn });
-			gsap.fromTo(lowerRight, { opacity: 0, x: -25 }, { opacity: 1, x: 0, duration: 0.35, ease: Power3.easeIn });
+			gsap.to(upperRight, { fill: 'none', duration, ease: Power3.easeIn });
+			gsap.fromTo(helper, { opacity: 1, x: 0 }, { duration, opacity: 0, x: 20, ease: Power3.easeIn });
+			gsap.fromTo(lowerRight, { opacity: 0, x: -25 }, { opacity: 1, x: 0, duration, ease: Power3.easeIn });
 			gsap.fromTo(
 				series,
 				{ opacity: 1, x: 0 },
-				{ opacity: 0, x: 20, duration: 0.35, ease: Power3.easeIn, delay: 0.35 }
+				{ opacity: 0, x: 20, duration, ease: Power3.easeIn, delay: duration }
 			);
 			gsap.fromTo(
 				lowerLeft,
 				{ opacity: 0, x: -25 },
-				{ opacity: 1, x: 0, duration: 0.35, ease: Power3.easeIn, delay: 0.35 }
+				{ opacity: 1, x: 0, duration, ease: Power3.easeIn, delay: duration }
 			);
 			gsap.fromTo(
 				movies,
 				{ opacity: 1, x: 0 },
-				{ opacity: 0, x: 20, duration: 0.35, ease: Power3.easeIn, delay: 0.7 }
+				{ opacity: 0, x: 20, duration, ease: Power3.easeIn, delay: duration * 2 }
 			);
 			gsap.fromTo(
 				upperLeft,
 				{ opacity: 0, x: -25 },
-				{ opacity: 1, x: 0, duration: 0.35, ease: Power3.easeIn, delay: 0.7 }
+				{ opacity: 1, x: 0, duration, ease: Power3.easeIn, delay: duration * 2 }
 			);
 		}
 
 		setTimeout(() => {
 			disabled = false;
-		}, 1200);
+		}, duration * 3 * 100);
 	};
 
 	let upperRight = useRef(null);
