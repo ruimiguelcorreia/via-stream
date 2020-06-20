@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 
-import { FaSistrix } from 'react-icons/fa';
-
 import MoviesListItem from './moviesList/moviesList';
 import DetailedMovie from '../detailedMoviePage/detailedMovie';
 
@@ -60,14 +58,7 @@ class Movies extends Component {
 	};
 
 	render() {
-		const {
-			movieListIMDB,
-			movieListJW,
-			listWasUpdated,
-			showMovieInfo,
-			selectedMovieInfo,
-			detailedProvidersList
-		} = this.state;
+		const { movieListIMDB, listWasUpdated, showMovieInfo, selectedMovieInfo, detailedProvidersList } = this.state;
 		return (
 			<div className="Movies">
 				<p className="page-title">

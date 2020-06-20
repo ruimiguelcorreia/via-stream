@@ -35,6 +35,7 @@ class MoviesListItem extends Component {
 				if (!filteredProvidersList.includes(offer.provider_id)) {
 					filteredProvidersList.push(offer.provider_id);
 					this.setState({ isFiltered: true });
+				} else {
 				}
 			});
 		}
@@ -45,7 +46,7 @@ class MoviesListItem extends Component {
 		const { isFiltered, filteredProvidersList } = this.state;
 		return (
 			<div className="Item">
-				<img src={Poster} className="poster" />
+				<img src={Poster} className="poster" alt="Movie Poster" />
 				<div className="title-identification">
 					<span className="title-name">{Title}</span>
 					<span className="title-year">{Year}</span>
@@ -56,6 +57,7 @@ class MoviesListItem extends Component {
 									src={require(`../../images/providerIcons/${id}.jpeg`)}
 									className="provider-logo"
 									key={id}
+									alt="Provider Icon."
 								/>
 							))}
 					</div>

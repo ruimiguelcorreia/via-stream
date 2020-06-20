@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 
+import imdb from '../images/critics/imdb-logo.png';
+import rotten from '../images/critics/tomatoes-logo.png';
+import metacritic from '../images/critics/metacritic-logo.png';
+
 import './detailedMovie.scss';
 
 class DetailedMovie extends Component {
@@ -9,12 +13,10 @@ class DetailedMovie extends Component {
 		this.state = {
 			movie: null,
 			movieWasRetrieved: false,
-			providers: [],
 			rent: [],
 			buy: [],
 			stream: [],
-			typeSelected: null,
-			userFilteredList: null
+			typeSelected: null
 		};
 	}
 
@@ -23,29 +25,22 @@ class DetailedMovie extends Component {
 
 		Axios.get(`http://localhost:3000/single-movie/${imdbID}`)
 			.then((response) => {
+				const providers = response.data.justWatch[0].offers;
+				const sort = (a, b) => a.provider_id - b.provider_id;
+				const buy = providers.filter((offer) => offer.monetization_type === 'buy').sort(sort);
+				const rent = providers.filter((offer) => offer.monetization_type === 'rent').sort(sort);
+				const stream = providers.filter((offer) => offer.monetization_type === 'flatrate').sort(sort);
+
 				this.setState({
 					movie: response.data,
 					movieWasRetrieved: true,
-					providers: response.data.justWatch[0].offers
+					buy,
+					rent,
+					stream,
+					typeSelected: buy.length > 0 ? 'buy' : rent.length > 0 ? 'rent' : 'stream'
 				});
 			})
 			.catch((error) => console.log(error));
-	}
-
-	componentDidUpdate(prevState) {
-		const { providers, buy, rent, stream } = this.state;
-
-		if (providers !== prevState.providers) {
-			providers.forEach((offer) => {
-				if (offer.monetization_type === 'buy') {
-					buy.push(offer);
-				} else if (offer.monetization_type === 'rent') {
-					rent.push(offer);
-				} else {
-					stream.push(offer);
-				}
-			});
-		}
 	}
 
 	selectProviderType = (event) => {
@@ -57,17 +52,7 @@ class DetailedMovie extends Component {
 	render() {
 		const { movieWasRetrieved, movie, typeSelected, buy, stream, rent } = this.state;
 		const { closeInfo } = this.props;
-		let displayedProviders;
-
-		if (typeSelected === 'buy') {
-			displayedProviders = true;
-		} else if (typeSelected === 'rent') {
-			displayedProviders = rent;
-		} else if (typeSelected === 'stream') {
-			displayedProviders = stream;
-		} else {
-			displayedProviders = 'Select an option above.';
-		}
+		const providers = typeSelected === 'buy' ? buy : typeSelected === 'rent' ? rent : stream;
 
 		return (
 			<div>
@@ -79,7 +64,21 @@ class DetailedMovie extends Component {
 						<div className="title">{movie.imdb.Title}</div>
 						<div className="awards">{movie.imdb.Awards}</div>
 						<span className="poster">
-							<img src={movie.imdb.Poster} />
+							<img src={movie.imdb.Poster} alt="Movie Poster" />
+							<div className="scoring">
+								<div className="col-1">
+									<img src={imdb} alt="Imdb Logo" />
+									<span>{movie.imdb.Ratings[0].Value}</span>
+								</div>
+								<div className="col-2">
+									<img src={rotten} alt="Rotten Tomatoes Logo" />
+									<span>{movie.imdb.Ratings[1].Value}</span>
+								</div>
+								<div className="col-3">
+									<img src={metacritic} alt="Metacritic Logo" />
+									<span>{movie.imdb.Ratings[2].Value}</span>
+								</div>
+							</div>
 						</span>
 						<span className="rated">{movie.imdb.Rated}</span>
 						<span className="plot">
@@ -124,22 +123,52 @@ class DetailedMovie extends Component {
 
 						<div className="providers-table">
 							<div className="type-selector">
-								<button className="provider-buy" value="buy" onClick={this.selectProviderType}>
-									Buy
-								</button>
-								<button className="provider-rent" value="rent" onClick={this.selectProviderType}>
-									Rent
-								</button>
-								<button className="provider-stream" value="stream" onClick={this.selectProviderType}>
-									Stream
-								</button>
+								{buy.length > 0 && (
+									<button
+										className={(typeSelected === 'buy' ? 'selected' : '') + ' provider-buy'}
+										value="buy"
+										onClick={this.selectProviderType}
+									>
+										Buy
+									</button>
+								)}
+								{rent.length > 0 && (
+									<button
+										className={(typeSelected === 'rent' ? 'selected' : '') + ' provider-rent'}
+										value="rent"
+										onClick={this.selectProviderType}
+									>
+										Rent
+									</button>
+								)}
+								{stream.length > 0 && (
+									<button
+										className={(typeSelected === 'stream' ? 'selected' : '') + ' provider-stream'}
+										value="stream"
+										onClick={this.selectProviderType}
+									>
+										Stream
+									</button>
+								)}
 							</div>
 							<div class="providers-list">
-								<label for="service">Choose a provider:</label>
-								<select id="service">
-									{typeSelected === 'buy' &&
-										buy.forEach((choice) => <option>choice.provider_id</option>)}
-								</select>
+								{providers.map((choice) => (
+									<div className="individual-offer">
+										<p className="individual-quality">{choice.presentation_type}</p>
+										<img
+											src={require(`../images/providerIcons/${choice.provider_id}.jpeg`)}
+											className="individual-img"
+											alt="Provider Logo"
+										/>
+										<p className="individual-price">
+											{typeSelected === 'buy' || typeSelected === 'rent' ? (
+												`£ ${choice.retail_price}`
+											) : (
+												''
+											)}
+										</p>
+									</div>
+								))}
 							</div>
 						</div>
 					</div>

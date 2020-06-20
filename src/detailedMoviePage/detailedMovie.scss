@@ -13,7 +13,7 @@
 		border: none;
 		background-color: transparent;
 		justify-self: center;
-		margin-top: 7vh;
+		margin-top: 10vh;
 
 		ion-icon {
 			color: #277b7e;
@@ -50,7 +50,51 @@
 		padding: 25px;
 		img {
 			height: 890px;
-			border-radius: 35px;
+			border-radius: 35px 35px 0 0;
+		}
+
+		.scoring {
+			background-color: #194f51;
+			height: 100px;
+			width: 100%;
+			display: grid;
+			grid-template-columns: 5% 30% 25% 30% 5%;
+			column-gap: calc(5% / 2);
+			border-radius: 0 0 35px 35px;
+
+			.col-1 {
+				grid-column: 2;
+			}
+			.col-2 {
+				grid-column: 3;
+			}
+			.col-3 {
+				grid-column: 4;
+			}
+
+			div {
+				align-self: center;
+				justify-self: center;
+				display: grid;
+				grid-template-columns: 45% 45%;
+				column-gap: 5%;
+				width: 100%;
+
+				span,
+				img {
+					align-self: center;
+					justify-self: center;
+				}
+				img {
+					height: 65px;
+					width: auto;
+				}
+				span {
+					font-family: 'Roboto';
+					color: #d1ac00;
+					font-size: 20pt;
+				}
+			}
 		}
 	}
 
@@ -148,7 +192,9 @@
 				border: none;
 				outline: none;
 
-				&:focus {
+				&:focus,
+				&:active,
+				&.selected {
 					background-color: #816a00;
 					color: #f5f5f5;
 				}
@@ -166,10 +212,56 @@
 		}
 
 		.providers-list {
-			height: 650px;
+			min-height: 450px;
+			justify-content: center;
 			background-color: #194f51;
 			border-radius: 0 0 50px 50px;
 			margin-bottom: 2vh;
+			display: grid;
+			grid-template-columns: repeat(3, calc(85% / 3));
+			column-gap: 3.5%;
+
+			.individual-offer {
+				height: 200px;
+				display: grid;
+				grid-template-rows: 10% 60% 10%;
+				row-gap: 5%;
+				align-self: center;
+				margin: 10% 0;
+				background-image: linear-gradient(to bottom, #194f51, #011111);
+				border-radius: 25px;
+
+				.individual-img,
+				.individual-price {
+					justify-self: center;
+					align-self: center;
+				}
+
+				.individual-quality,
+				.individual-price {
+					font-family: 'Roboto';
+					font-size: 20pt;
+					font-weight: bold;
+				}
+
+				.individual-quality {
+					text-transform: uppercase;
+					color: #d1ac00;
+					position: relative;
+					left: 130px;
+					top: 10px;
+				}
+
+				.individual-price {
+					color: #f5f5f5;
+					text-align: center;
+				}
+
+				.individual-img {
+					height: 90px;
+					border-radius: 20px;
+				}
+			}
 		}
 	}
 }
