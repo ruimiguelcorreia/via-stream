@@ -1,82 +1,176 @@
 .Movies {
-	height: 100vh;
-	width: 100vw;
-	overflow: auto;
-	background-image: linear-gradient(to top, #012324, #011111);
-	display: flex;
-	flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
+  background-image: linear-gradient(to top, #012324, #011111);
+  display: flex;
+  flex-direction: column;
 
-	.page-title {
-		font-family: 'Baloo Bhai 2';
-		font-size: 40pt;
-		color: white;
-		text-align: center;
-		position: relative;
-		top: 10vh;
+  .page-title {
+    font-family: 'Baloo Bhai 2';
+    font-size: 40pt;
+    color: white;
+    text-align: center;
+    position: relative;
+    top: 10vh;
 
-		.special-word {
-			color: #d1ac00;
-		}
-	}
+    .special-word {
+      color: #d1ac00;
+    }
+  }
 
-	.search-form {
-		z-index: 2;
-		position: relative;
-		top: 10vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 100vw;
-		height: 12.5vh;
-		flex-shrink: 0;
+  .search-form {
+    z-index: 2;
+    position: relative;
+    top: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 12.5vh;
+    flex-shrink: 0;
 
-		.form-input {
-			height: 6vh;
-			width: 70vw;
-			border-radius: 60px;
-			background: linear-gradient(-300, #f7f4f4, rgb(255, 255, 255));
-			font-size: 35pt;
-			font-family: 'Roboto';
-			text-align: center;
-			border: 5px solid #d1ac00;
-			&:focus {
-				outline: none;
-			}
-		}
-	}
+    .form-input {
+      height: 6vh;
+      width: 70vw;
+      border-radius: 60px;
+      background: linear-gradient(-300, #f7f4f4, rgb(255, 255, 255));
+      font-size: 35pt;
+      font-family: 'Roboto';
+      text-align: center;
+      border: 5px solid #d1ac00;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
 
-	.search-btn {
-		position: absolute;
-		right: 17.5vw;
-		top: 5vh;
-		background-color: transparent;
-		border: none;
-		outline: none;
-		ion-icon {
-			font-size: 60px;
-			color: #d1ac00;
-		}
-	}
+  .search-btn {
+    position: absolute;
+    right: 17.5vw;
+    top: 5vh;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    ion-icon {
+      font-size: 60px;
+      color: #d1ac00;
+    }
+  }
 
-	.movies-list {
-		height: auto;
-		z-index: 1;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		position: relative;
-		margin-top: 3.75vh;
-		background-color: #012324;
-		border-radius: 150px 150px 0 0;
-		padding-top: 7.5vh;
-		padding-bottom: 0.5vh;
-		flex-grow: 1;
-	}
+  .movies-list {
+    height: auto;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-top: 3.75vh;
+    background-color: #012324;
+    border-radius: 150px 150px 0 0;
+    padding-top: 7.5vh;
+    padding-bottom: 0.5vh;
+    flex-grow: 1;
+  }
 
-	.more-info {
-		z-index: 3;
-		position: absolute;
-		top: 0;
-		background-image: linear-gradient(to top, #012324, #011111);
-	}
+  .more-info {
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    background-image: linear-gradient(to top, #012324, #011111);
+  }
+}
+
+@media (min-width: 1281px) {
+  .Movies {
+    height: 100vh;
+    width: 100vw;
+    overflow: auto;
+    background-image: linear-gradient(to top, #012324, #011111);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+
+    .page-title {
+      font-family: 'Baloo Bhai 2';
+      font-size: 18pt;
+      color: white;
+      text-align: center;
+      position: relative;
+      top: 17.5vh;
+
+      .special-word {
+        color: #d1ac00;
+      }
+    }
+
+    .search-form {
+      z-index: 2;
+      position: relative;
+      top: 20vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 12.5vh;
+      flex-shrink: 0;
+
+      .form-input {
+        height: 6vh;
+        width: 30vw;
+        border-radius: 60px;
+        background: linear-gradient(-300, #f7f4f4, rgb(255, 255, 255));
+        font-size: 15pt;
+        font-family: 'Roboto';
+        text-align: center;
+        border: 2.5px solid #d1ac00;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .search-btn {
+      position: relative;
+      right: 50px;
+      top: 1px;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      ion-icon {
+        font-size: 30px;
+        color: #d1ac00;
+      }
+    }
+
+    .movies-list {
+      height: auto;
+      width: 50%;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      margin-top: 13.75vh;
+      background-color: #012324;
+      border-radius: 50px 50px 0 0;
+      padding-top: 7.5vh;
+      padding-bottom: 0.5vh;
+      flex-grow: 1;
+    }
+
+    .more-info {
+      z-index: 3;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background-image: linear-gradient(to top, #012324, #011111);
+    }
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
 }

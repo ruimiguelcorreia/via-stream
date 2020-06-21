@@ -77,3 +77,86 @@
 		}
 	}
 }
+
+@media (min-width: 1281px) {
+	.Item {
+		height: 10vh;
+		width: 90%;
+		background-color: #011111;
+		border-radius: 25px 25px;
+		display: grid;
+		grid-template-columns: 10% 80% 8%;
+		column-gap: 1%;
+		margin-bottom: 2.25vh;
+
+		.title-identification {
+			display: grid;
+			height: 100%;
+			grid-template-columns: 45% 20% 30%;
+			grid-template-rows: 100%;
+			row-gap: 0;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.title-name {
+			text-align: center;
+			align-self: center;
+			justify-self: center;
+			width: 90%;
+			font-size: 13pt;
+			line-height: 20pt;
+			color: #d1ac00;
+			font-family: 'Baloo Bhai 2';
+			-webkit-line-clamp: 2;
+			display: -webkit-box;
+			overflow: hidden;
+			-webkit-box-orient: vertical;
+		}
+
+		.title-year {
+			align-self: center;
+			justify-self: center;
+			font-size: 10pt;
+			color: #fff;
+			font-family: 'Roboto';
+		}
+		.providers {
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+			.provider-logo {
+				height: 20px;
+				width: 20px;
+				border-radius: 20%;
+				margin: 3px;
+			}
+		}
+
+		.poster {
+			height: 10vh;
+			width: 100%;
+			border-radius: 25px 0 0 25px;
+			object-fit: cover;
+		}
+
+		.more-button {
+			align-self: center;
+			justify-self: center;
+			height: 60px;
+			width: 60px;
+			background-color: #011111;
+			border: none;
+			outline: none;
+			margin-right: 30px;
+
+			ion-icon {
+				height: 40px;
+				width: 40px;
+				color: #d1ac00;
+			}
+		}
+	}
+}

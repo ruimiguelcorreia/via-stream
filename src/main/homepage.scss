@@ -64,3 +64,88 @@
 		}
 	}
 }
+
+// Desktop View:
+
+@media (min-width: 1281px) {
+	.Homepage {
+		height: 100vh;
+		background-image: linear-gradient(to bottom, #012122da, #011c1db2), url('../images/homepage-background.jpeg');
+		object-fit: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		display: grid;
+		grid-template-columns: 30% 70%;
+		grid-template-rows: 100%;
+
+		.title-container {
+			position: relative;
+			left: 20vw;
+			top: 0vh;
+			border: 5px outset #d1ac00;
+			border-radius: 50%;
+			height: 300px;
+			width: 300px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+
+			&::after {
+				content: 'for streamming maniacs';
+				color: #f5f5f5;
+				font-family: 'Baloo Bhai 2';
+				font-style: italic;
+				font-size: 20pt;
+				position: absolute;
+				top: 110%;
+			}
+		}
+
+		.homepage-title {
+			font-size: 50pt;
+			text-align: center;
+			color: #d1ac00;
+			font-family: 'Baloo Bhai 2';
+			line-height: 80px;
+		}
+
+		.homepage-buttons {
+			height: 100%;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+			p {
+				justify-self: center;
+				align-self: center;
+				color: #f5f5f5;
+				font-size: 15pt;
+				font-family: 'Baloo Bhai 2';
+				text-align: center;
+			}
+
+			.buttons {
+				display: flex;
+				justify-content: center;
+			}
+
+			.select-btn {
+				background-color: rgb(180, 147, 0);
+				margin: 20px 5px 50px 5px;
+				height: 40px;
+				width: 7vw;
+				border-radius: 75px;
+				border: none;
+				font-size: 13pt;
+				font-family: 'Roboto';
+
+				& .button-link {
+					text-decoration: none;
+					color: #023436;
+				}
+			}
+		}
+	}
+}

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 
-import './tvShowsList.scss';
-
 class TvShowsListItem extends Component {
 	constructor(props) {
 		super(props);
