@@ -26,13 +26,13 @@ const NavBar = () => {
 			gsap.to(upperRight, { fill: '#d1ac00', duration, ease: Power3.easeIn });
 			gsap.fromTo(
 				upperLeft,
-				{ opacity: 1, x: 0 },
+				{ display: 1, x: 0 },
 				{ opacity: 0, x: -100, duration, ease: Power3.easeIn, delay: duration }
 			);
 			gsap.fromTo(
 				movies,
-				{ opacity: 0, x: 20 },
-				{ opacity: 1, x: 0, duration, ease: Power3.easeIn, delay: duration }
+				{ display: 'none', x: 20 },
+				{ display: 'block', x: 0, duration, ease: Power3.easeIn, delay: duration }
 			);
 			gsap.fromTo(
 				lowerLeft,
@@ -41,8 +41,8 @@ const NavBar = () => {
 			);
 			gsap.fromTo(
 				series,
-				{ opacity: 0, x: 20 },
-				{ opacity: 1, x: 0, duration, ease: Power3.easeIn, delay: duration * 2 }
+				{ display: 'none', x: 20 },
+				{ display: 'block', x: 0, duration, ease: Power3.easeIn, delay: duration * 2 }
 			);
 			gsap.fromTo(
 				lowerRight,
@@ -51,17 +51,17 @@ const NavBar = () => {
 			);
 			gsap.fromTo(
 				helper,
-				{ opacity: 0, x: 20 },
-				{ opacity: 1, x: 0, duration, ease: Power3.easeIn, delay: duration * 3 }
+				{ display: 'none', x: 20 },
+				{ display: 'block', x: 0, duration, ease: Power3.easeIn, delay: duration * 3 }
 			);
 		} else {
 			gsap.to(upperRight, { fill: 'none', duration, ease: Power3.easeIn });
-			gsap.fromTo(helper, { opacity: 1, x: 0 }, { duration, opacity: 0, x: 20, ease: Power3.easeIn });
+			gsap.fromTo(helper, { display: 'block', x: 0 }, { duration, display: 'none', x: 20, ease: Power3.easeIn });
 			gsap.fromTo(lowerRight, { opacity: 0, x: -25 }, { opacity: 1, x: 0, duration, ease: Power3.easeIn });
 			gsap.fromTo(
 				series,
-				{ opacity: 1, x: 0 },
-				{ opacity: 0, x: 20, duration, ease: Power3.easeIn, delay: duration }
+				{ display: 'block', x: 0 },
+				{ display: 'none', x: 20, duration, ease: Power3.easeIn, delay: duration }
 			);
 			gsap.fromTo(
 				lowerLeft,
@@ -70,8 +70,8 @@ const NavBar = () => {
 			);
 			gsap.fromTo(
 				movies,
-				{ opacity: 1, x: 0 },
-				{ opacity: 0, x: 20, duration, ease: Power3.easeIn, delay: duration * 2 }
+				{ display: 'block', x: 0 },
+				{ display: 'none', x: 20, duration, ease: Power3.easeIn, delay: duration * 2 }
 			);
 			gsap.fromTo(
 				upperLeft,
@@ -100,13 +100,28 @@ const NavBar = () => {
 					<Link to="/" className="menu-item menu-item-l">
 						<img src={logo} alt="Via Stream Logo" />
 					</Link>
-					<Link to="/movies" className="menu-item menu-item-m" ref={(el) => (movies = el)}>
+					<Link
+						to="/movies"
+						onClick={startAnimation}
+						className="menu-item menu-item-m"
+						ref={(el) => (movies = el)}
+					>
 						Movies
 					</Link>
-					<Link to="/tv-shows" className="menu-item menu-item-t" ref={(el) => (series = el)}>
+					<Link
+						to="/tv-shows"
+						onClick={startAnimation}
+						className="menu-item menu-item-t"
+						ref={(el) => (series = el)}
+					>
 						Series
 					</Link>
-					<Link to="/subscriptions" className="menu-item menu-item-s" ref={(el) => (helper = el)}>
+					<Link
+						to="/subscriptions"
+						onClick={startAnimation}
+						className="menu-item menu-item-s"
+						ref={(el) => (helper = el)}
+					>
 						Helper
 					</Link>
 				</div>
