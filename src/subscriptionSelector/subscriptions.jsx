@@ -21,7 +21,7 @@ class Subscriptions extends Component {
 
 		const index = selection.findIndex((title) => title === option);
 
-		if (selection.length >= limit && index == -1) return;
+		if (selection.length >= limit && index === -1) return;
 
 		index >= 0 ? selection.splice(index, 1) : selection.push(option);
 
@@ -69,7 +69,7 @@ class Subscriptions extends Component {
 					))}
 				</div>
 
-				{selection.length == 10 ? (
+				{selection.length === 10 ? (
 					<button onClick={this.calculateResult} className="results-btn">
 						Get Results
 					</button>
