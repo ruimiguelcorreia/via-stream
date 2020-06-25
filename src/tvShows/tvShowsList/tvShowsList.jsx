@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 
+import API_URL from '../../configs/api';
+
 class TvShowsListItem extends Component {
 	constructor(props) {
 		super(props);
@@ -15,7 +17,7 @@ class TvShowsListItem extends Component {
 	componentDidMount() {
 		const { imdbID } = this.props;
 
-		Axios.get(`http://localhost:3000/single-show/${imdbID}`)
+		Axios.get(`${API_URL}/single-show/${imdbID}`)
 			.then((results) =>
 				this.setState({
 					imdbInfo: results.data.imdb,

@@ -4,6 +4,8 @@ import Axios from 'axios';
 import MoviesListItem from './moviesList/moviesList';
 import DetailedMovie from '../detailedMoviePage/detailedMovie';
 
+import API_URL from '../configs/api';
+
 import './movies.scss';
 
 class Movies extends Component {
@@ -30,7 +32,7 @@ class Movies extends Component {
 		const { movieToSearch } = this.state;
 
 		event.preventDefault();
-		Axios.get(`http://localhost:3000/movies/${movieToSearch}`)
+		Axios.get(`${API_URL}/movies/${movieToSearch}`)
 			.then((results) =>
 				this.setState({
 					movieListIMDB: results.data.imdb,
@@ -40,7 +42,7 @@ class Movies extends Component {
 			)
 			.catch((error) => console.log(error));
 
-		Axios.get('http://localhost:3000/providers')
+		Axios.get(`${API_URL}/providers`)
 			.then((response) => {
 				this.setState({
 					detailedProvidersList: response.data

@@ -5,6 +5,8 @@ import imdb from '../images/critics/imdb-logo.png';
 import rotten from '../images/critics/tomatoes-logo.png';
 import metacritic from '../images/critics/metacritic-logo.png';
 
+import API_URL from "../configs/api";
+
 import './detailedMovie.scss';
 
 class DetailedMovie extends Component {
@@ -23,7 +25,7 @@ class DetailedMovie extends Component {
   componentDidMount() {
     const { imdbID } = this.props;
 
-    Axios.get(`http://localhost:3000/single-movie/${imdbID}`)
+    Axios.get(`${API_URL}/single-movie/${imdbID}`)
       .then((response) => {
         const providers = response.data.justWatch[0].offers;
         const sort = (a, b) => a.provider_id - b.provider_id;
