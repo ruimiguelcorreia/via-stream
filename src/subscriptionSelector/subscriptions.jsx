@@ -69,7 +69,7 @@ class Subscriptions extends Component {
 					))}
 				</div>
 
-				{selection.length > 0 ? (
+				{selection.length == 10 ? (
 					<button onClick={this.calculateResult} className="results-btn">
 						Get Results
 					</button>
