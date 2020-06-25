@@ -56,20 +56,32 @@ class Subscriptions extends Component {
 					Select <span className="special-word">{limit}</span> of the following titles and get your answer:
 				</p>
 
-				{data.map((option) => (
-					<div
-						onClick={() => this.handleSelection(option)}
-						key={option.name}
-						className={selection.find((title) => title === option) ? 'option-selected' : 'option'}
-					>
-						<img src={option.poster} alt="Poster" />
-						<p>{option.name}</p>
-					</div>
-				))}
+				<div className="options">
+					{data.map((option) => (
+						<div
+							onClick={() => this.handleSelection(option)}
+							key={option.name}
+							className={selection.find((title) => title === option) ? 'option-selected' : 'option'}
+						>
+							<img src={option.poster} alt="Poster" className="poster" />
+							<p className="option-name">{option.name}</p>
+						</div>
+					))}
+				</div>
 
-				{selection.length > 0 ? <button onClick={this.calculateResult}>Get Results</button> : ''}
+				{selection.length > 0 ? (
+					<button onClick={this.calculateResult} className="results-btn">
+						Get Results
+					</button>
+				) : (
+					''
+				)}
 
-				{hasResult && <p>Your most suitable subscription is {bestOption}.</p>}
+				{hasResult && (
+					<p className="result">
+						Your most suitable subscription is <span className="special-word">{bestOption}</span>.
+					</p>
+				)}
 			</div>
 		);
 	}
